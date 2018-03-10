@@ -309,6 +309,7 @@ enum mdss_intf_events {
 	MDSS_EVENT_AVR_MODE,
 	MDSS_EVENT_REGISTER_CLAMP_HANDLER,
 	MDSS_EVENT_MAX,
+	MDSS_EVENT_UPDATE_LIVEDISPLAY,
 };
 
 /**
@@ -758,6 +759,9 @@ struct mdss_dsi_dual_pu_roi {
 	struct mdss_rect second_roi;
 	bool enabled;
 };
+
+struct mdss_livedisplay_ctx;
+
 /**
  *  HTC: A Struct for Backlgith 1.0.
  *  Apply on backlight_transfer function.
@@ -937,6 +941,8 @@ struct mdss_panel_info {
 	 * configuring the event timer wakeup logic.
 	 */
 	u32 adjust_timer_delay_ms;
+
+	struct mdss_livedisplay_ctx *livedisplay;
 
 	/* debugfs structure for the panel */
 	struct mdss_panel_debugfs_info *debugfs_info;
